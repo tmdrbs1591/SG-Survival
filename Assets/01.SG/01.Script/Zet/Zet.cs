@@ -11,10 +11,12 @@ public class Zet : MonoBehaviour
 
     [Header("공격")]
     [SerializeField] GameObject BulletPrefabs;
+    [SerializeField] GameObject BulletPrefabs2;
     [SerializeField] float attackCoolTime; // 공격 쿨타임
     public Transform FirePoint; // 총알이 발사될 위치
     public Vector3 firePointOffset; // 발사 위치 오프셋
     float attackCurTime;
+    [SerializeField] int bulletCount;
 
     [Header("애니메이션")]
     private Animator anim;
@@ -107,9 +109,46 @@ public class Zet : MonoBehaviour
             return;
         }
 
-        GameObject bullet = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.Initialize(fireDirection);
+
+        if (bulletCount == 1)
+        {
+            GameObject bullet = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.Initialize(fireDirection);
+        }
+        else if (bulletCount == 2)
+        {
+            GameObject bullet = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(-0.7f,0,0), Quaternion.LookRotation(fireDirection));
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.Initialize(fireDirection);
+
+
+            GameObject bullet2 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
+            bulletScript2.Initialize(fireDirection);
+
+        }
+        else if (bulletCount == 3)
+        {
+            GameObject bullet = Instantiate(BulletPrefabs2  , FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.Initialize(fireDirection);
+
+
+            GameObject bullet2 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
+            bulletScript2.Initialize(fireDirection);
+
+
+            GameObject bullet3 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(-0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            Bullet bulletScript3 = bullet3.GetComponent<Bullet>();
+            bulletScript3.Initialize(fireDirection);
+
+        }
+
+
+
+
     }
 
     Vector3 GetMouseWorldPosition() // 마우스의 월드 좌표를 계산
@@ -125,4 +164,20 @@ public class Zet : MonoBehaviour
 
         return ray.GetPoint(30); // 기본값
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            var itemScript = other.GetComponent<Item>();
+
+            if (itemScript.itemType == "BulletPlus")
+            {
+                bulletCount++;
+            }
+
+            Destroy(other.gameObject);
+        }
+    }
+
 }

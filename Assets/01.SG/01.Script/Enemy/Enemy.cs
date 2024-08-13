@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float maxHp;
+
+    [SerializeField] private EnemyData enemyData; // 스크립터블 오브젝트 참조
+
     [SerializeField] private float curHp;
 
     [SerializeField] GameObject mesh;
@@ -19,13 +21,13 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        curHp = maxHp;
+        curHp = enemyData.health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * 5 * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.forward * enemyData.speed * Time.deltaTime, Space.Self);
         Die();
     }
 
@@ -40,6 +42,8 @@ public class Enemy : MonoBehaviour
     {
         if (curHp <= 0 && !isDie) // 계속 실행 방지를 위해 bool 값 추가
         {
+            ScoreManager.instance.AddScore(enemyData.score);
+
             isDie = true;
 
             CameraShake.instance.Shake(0.5f,0.07f);

@@ -150,7 +150,7 @@ public class ReadmeEditor : Editor {
 		Handles.color = Color.white;
 		Handles.EndGUI ();
 
-		EditorGUIUtility.AddCursorRect (position, MouseCursor.Link);
+		//	EditorGUIUtility.AddCursorRect (position, MouseCursor.Link);
 
 		return GUI.Button (position, label, LinkStyle);
 	}

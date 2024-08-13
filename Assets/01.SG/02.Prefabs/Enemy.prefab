@@ -4654,7 +4654,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8910760117034270164}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.034766477, y: 0.057599857, z: 0.06519758}
@@ -4671,8 +4671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c3496b2237f674086eacd86f4338ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  curHp: 10
+  enemyData: {fileID: 11400000, guid: 451031b000c2f6144941dcd0dec91252, type: 2}
+  curHp: 6
   mesh: {fileID: 8910760117034266936}
   normalMaterial: {fileID: 2100000, guid: f984ce73f98d26648949e528f9e27a57, type: 2}
   hitMaterial: {fileID: 2100000, guid: bbddd399e7753a54b862594adaf98432, type: 2}
