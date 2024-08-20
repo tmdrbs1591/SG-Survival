@@ -25,6 +25,8 @@ public class Bullet : MonoBehaviour
          var enemyScript =    other.GetComponent<Enemy>();
             enemyScript.TakeDamage(damage); // enemy 스크립트를 가져와 피격처리
             Destroy(gameObject);
+
+            HPUI.instance.Hpbar.value = enemyScript.curHp / enemyScript.enemyData.health;
         }
     }
 }

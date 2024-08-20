@@ -16,4 +16,5 @@ MonoBehaviour:
   health: 6
   score: 3000
   speed: 6
+  exp: 5
   bulletPrefab: {fileID: 0}

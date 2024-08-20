@@ -1859,6 +1859,7 @@ MonoBehaviour:
   normalMaterial: {fileID: 2100000, guid: f984ce73f98d26648949e528f9e27a57, type: 2}
   hitMaterial: {fileID: 2100000, guid: bbddd399e7753a54b862594adaf98432, type: 2}
   DieExplosionPtc: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+  EXP: {fileID: 6093132108034087579, guid: 543df4ad63206d04ba15e1c9c8b250c4, type: 3}
 --- !u!1 &512732999721876382
 GameObject:
   m_ObjectHideFlags: 0

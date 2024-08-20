@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject
     public float health; // 체력
     public int score; // 주는 스코어
     public float speed; // 속도
+    public int exp; //주는 경험치 개수
     public GameObject bulletPrefab; // 불렛 프리팹
 
     // 필요하다면 더 많은 속성 추가 가능

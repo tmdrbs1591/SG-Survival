@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] private EnemyData enemyData; // 스크립터블 오브젝트 참조
+    [SerializeField] public  EnemyData enemyData; // 스크립터블 오브젝트 참조
 
-    [SerializeField] private float curHp;
+    [SerializeField] public float curHp;
 
     [SerializeField] GameObject mesh;
     [SerializeField] Material normalMaterial;
     [SerializeField] Material hitMaterial;
 
     [SerializeField] GameObject DieExplosionPtc;
+    [SerializeField] GameObject EXP;
 
 
     private bool isDie;
@@ -47,6 +49,12 @@ public class Enemy : MonoBehaviour
             isDie = true;
 
             CameraShake.instance.Shake(0.5f,0.07f);
+
+            for (int i = 0; i < enemyData.exp; i++) // enemyData에 exp 개수만큼 경험치 생성
+            {
+                Instantiate(EXP, transform.position, Quaternion.identity);
+            }
+
 
             Instantiate(DieExplosionPtc, transform.position, Quaternion.identity);
             StartCoroutine(DieSequence());
