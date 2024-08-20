@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // 10% 확률로 아이템을 스폰할지 결정
-        bool spawnItem = Random.value < 0.1f; // 10% 확률
+        bool spawnItem = Random.value < 0.3f; // 10% 확률
 
         if (spawnItem && spawnStraight)
         {

@@ -8,6 +8,7 @@ public class EXP : MonoBehaviour
     public float curveStrength = 2f;  // 곡선의 강도 (제어점의 이동 거리)
     public float minStartDelay = 0f;  // 시작 지연의 최소 값 (초)
     public float maxStartDelay = 0.5f;  // 시작 지연의 최대 값 (초)
+    public float xp; // 줄 경험치
 
     [SerializeField] GameObject ExpEffect;
 
@@ -116,8 +117,12 @@ public class EXP : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Zet"))
         {
+            ZetLevel.instance.currentXp += xp;
+            ZetLevel.instance.LV_UP();
+
             Destroy(gameObject);
             Destroy(Instantiate(ExpEffect, transform.position, Quaternion.identity), 2f);
+
         }
     }
 }

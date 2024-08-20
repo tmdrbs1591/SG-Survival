@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
     {
         curHp -= damage;
 
+        AudioManager.instance.PlaySound(transform.position, 2, Random.Range(1f, 1.5f), 0.2f);
+
         // 메테리얼을 hitMaterial로 변경
         StartCoroutine(ChangeMaterialTemporary());
     }
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
         if (curHp <= 0 && !isDie) // 계속 실행 방지를 위해 bool 값 추가
         {
             ScoreManager.instance.AddScore(enemyData.score);
+            AudioManager.instance.PlaySound(transform.position, 1, Random.Range(1f, 1.8f), 0.4f);
 
             isDie = true;
 
@@ -52,11 +55,15 @@ public class Enemy : MonoBehaviour
 
             for (int i = 0; i < enemyData.exp; i++) // enemyData에 exp 개수만큼 경험치 생성
             {
-                Instantiate(EXP, transform.position, Quaternion.identity);
+               var es =  Instantiate(EXP, transform.position, Quaternion.identity) .GetComponent<EXP>();
+                es.xp = enemyData.expxp; // 생성할때 xp 에 넣기
             }
 
+        
 
-            Instantiate(DieExplosionPtc, transform.position, Quaternion.identity);
+
+
+         Instantiate(DieExplosionPtc, transform.position, Quaternion.identity);
             StartCoroutine(DieSequence());
         }
     }
