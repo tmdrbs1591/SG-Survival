@@ -117,56 +117,56 @@ public class Zet : MonoBehaviour
 
         if (bulletCount == 1)
         {
-            GameObject bullet = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
+            GameObject bullet = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.Initialize(fireDirection);
         }
         else if (bulletCount == 2)
         {
-            GameObject bullet = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(-0.7f,0,0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(-0.6f,0,0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.Initialize(fireDirection);
 
 
-            GameObject bullet2 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet2 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
             bulletScript2.Initialize(fireDirection);
 
         }
         else if (bulletCount == 3)
         {
-            GameObject bullet = Instantiate(BulletPrefabs2  , FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
+            GameObject bullet = ObjectPool.SpawnFromPool("Bullet2", FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.Initialize(fireDirection);
 
 
-            GameObject bullet2 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet2 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
             bulletScript2.Initialize(fireDirection);
 
 
-            GameObject bullet3 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(-0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet3 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(-0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript3 = bullet3.GetComponent<Bullet>();
             bulletScript3.Initialize(fireDirection);
 
         }
         else if (bulletCount == 4)
         {
-            GameObject bullet = Instantiate(BulletPrefabs2, FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
+            GameObject bullet = ObjectPool.SpawnFromPool("Bullet2", FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.Initialize(fireDirection);
 
 
-            GameObject bullet2 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet2 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
             bulletScript2.Initialize(fireDirection);
 
 
-            GameObject bullet3 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(-0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet3 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(-0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript3 = bullet3.GetComponent<Bullet>();
             bulletScript3.Initialize(fireDirection);
 
-            GameObject bullet4 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0, 0.7f, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet4 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0, 0.6f, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript4 = bullet4.GetComponent<Bullet>();
             bulletScript4.Initialize(fireDirection);
 
@@ -174,25 +174,25 @@ public class Zet : MonoBehaviour
 
         else if (bulletCount == 5)
         {
-            GameObject bullet = Instantiate(BulletPrefabs2, FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
+            GameObject bullet = ObjectPool.SpawnFromPool("Bullet2", FirePoint.position + firePointOffset, Quaternion.LookRotation(fireDirection));
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.Initialize(fireDirection);
 
 
-            GameObject bullet2 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet2 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(-0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript2 = bullet2.GetComponent<Bullet>();
             bulletScript2.Initialize(fireDirection);
 
 
-            GameObject bullet3 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(-0.7f, 0, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet3 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0.6f, 0, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript3 = bullet3.GetComponent<Bullet>();
             bulletScript3.Initialize(fireDirection);
 
-            GameObject bullet4 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0, 0.7f, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet4 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0f, 0.6f, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript4 = bullet4.GetComponent<Bullet>();
             bulletScript4.Initialize(fireDirection);
 
-            GameObject bullet5 = Instantiate(BulletPrefabs, FirePoint.position + firePointOffset + new Vector3(0, -0.7f, 0), Quaternion.LookRotation(fireDirection));
+            GameObject bullet5 = ObjectPool.SpawnFromPool("Bullet1", FirePoint.position + firePointOffset + new Vector3(0f, -0.6f, 0), Quaternion.LookRotation(fireDirection));
             Bullet bulletScript5 = bullet5.GetComponent<Bullet>();
             bulletScript5.Initialize(fireDirection);
         }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] public  EnemyData enemyData; // 스크립터블 오브젝트 참조
+    [SerializeField] public EnemyData enemyData; // 스크립터블 오브젝트 참조
 
     [SerializeField] public float curHp;
 
@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
 
         // 메테리얼을 hitMaterial로 변경
         StartCoroutine(ChangeMaterialTemporary());
+
+        HPUI.instance.Hpbar.value = curHp / enemyData.health;
     }
     void Die()
     {
@@ -51,19 +53,19 @@ public class Enemy : MonoBehaviour
 
             isDie = true;
 
-            CameraShake.instance.Shake(0.5f,0.07f);
+            CameraShake.instance.Shake(0.5f, 0.07f);
 
             for (int i = 0; i < enemyData.exp; i++) // enemyData에 exp 개수만큼 경험치 생성
             {
-               var es =  Instantiate(EXP, transform.position, Quaternion.identity) .GetComponent<EXP>();
+                var es = Instantiate(EXP, transform.position, Quaternion.identity).GetComponent<EXP>();
                 es.xp = enemyData.expxp; // 생성할때 xp 에 넣기
             }
 
-        
 
 
 
-         Instantiate(DieExplosionPtc, transform.position, Quaternion.identity);
+
+            Instantiate(DieExplosionPtc, transform.position, Quaternion.identity);
             StartCoroutine(DieSequence());
         }
     }
@@ -94,5 +96,14 @@ public class Enemy : MonoBehaviour
         Time.timeScale = 1f;
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("DestroyWall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
