@@ -136,7 +136,7 @@ public class Roket : MonoBehaviour
             var enemyScript = other.GetComponent<Enemy>();
             enemyScript.TakeDamage(1); // enemy 스크립트를 가져와 피격 처리
 
-          //  Destroy(gameObject);
+            Destroy(gameObject);
             ObjectPool.SpawnFromPool("RoketBoom", transform.position, Quaternion.identity);
         }
     }

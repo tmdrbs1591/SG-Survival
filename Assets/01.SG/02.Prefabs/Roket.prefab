@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  curveStrength: 5
+  curveStrength: 8
   minStartDelay: 0
   maxStartDelay: 0
   xp: 0

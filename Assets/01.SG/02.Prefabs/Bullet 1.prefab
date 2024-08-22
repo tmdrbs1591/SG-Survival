@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   damage: 2
+  name: Bullet2
 --- !u!114 &-7676269685744392456
 MonoBehaviour:
   m_ObjectHideFlags: 0
