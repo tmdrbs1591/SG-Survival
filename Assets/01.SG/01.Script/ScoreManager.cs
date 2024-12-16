@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText; // TextMeshPro 텍스트 컴포넌트
     [SerializeField] private Animator anim;
 
-    private int score;
+    public int score;
 
     private void Awake()
     {
